@@ -19,7 +19,7 @@ permissions:
   actions: read
 
 env:
-  AWS_REGION: us-east-1
+  AWS_REGION: eu-central-1
   ECR_REPOSITORY: drug-catalog-service
   GITOPS_REPO: ${{ vars.GITOPS_REPO }}
   GITOPS_SERVICE_NAME: catalog-service
@@ -33,7 +33,7 @@ jobs:
       service-name: drug-catalog-service
       service-dir: drug-catalog-service
       ecr-repository: drug-catalog-service
-      aws-region: us-east-1
+      aws-region: eu-central-1
       needs-database: true
     secrets: inherit
 
