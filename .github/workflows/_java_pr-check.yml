@@ -48,14 +48,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
+    #Install Java 17 in ubuntu (Temurin) for Maven build and CodeQL analysis
       - name: Setup Java 17 (Temurin)
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: temurin
           cache: maven
-
+    # Start PostgreSQL container inside the ubuntu machine 
       - name: Start PostgreSQL (integration tests)
         if: ${{ inputs.needs-database }}
         run: |
@@ -68,13 +68,13 @@ jobs:
             postgres:15-alpine
           until docker exec testdb pg_isready -U testuser 2>/dev/null; do sleep 2; done
           echo "PostgreSQL ready."
-
+    # Install CodeQL CLI for SAST analysis (security-extended queries)
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: java
           queries: security-extended
-
+    # Unit tests & Code coverage test (maven verify)
       - name: Maven verify (tests + JaCoCo coverage)
         run: cd ${{ inputs.service-dir }} && mvn verify --no-transfer-progress
         env:
