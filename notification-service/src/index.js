@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const { register, collectDefaultMetrics } = require('prom-client');
-const notificationRouter = require('./routes/notifications');
+const notificationRouter = require('./routes/notification');
 const logger = require('./utils/logger');
 
 const app = express();
