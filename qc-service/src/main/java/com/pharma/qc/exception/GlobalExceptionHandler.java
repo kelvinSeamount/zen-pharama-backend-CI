@@ -1,61 +1,28 @@
-package com.pharma.qc.model;
+package com.pharma.qc.exception;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.PreUpdate;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.time.LocalDateTime;
+import java.util.Map;
 
-@Entity
-@Table(name = "inspections")
-@Data
-@NoArgsConstructor
-public class Inspection {
+@RestControllerAdvice
+public class GlobalExceptionHandler {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @NotBlank
-    @Column(nullable = false)
-    private String batchNumber;
-
-    @NotBlank
-    @Column(nullable = false)
-    private String productName;
-
-    @NotBlank
-    @Column(nullable = false)
-    private String inspectionType;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Result result = Result.PENDING;
-
-    @NotBlank
-    @Column(nullable = false)
-    private String inspectorName;
-
-    private String notes;
-
-    private LocalDateTime inspectedAt = LocalDateTime.now();
-
-    private LocalDateTime updatedAt = LocalDateTime.now();
-
-    @PreUpdate
-    public void preUpdate() {
-        this.updatedAt = LocalDateTime.now();
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<Map<String, Object>> handleRuntimeException(RuntimeException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of(
+            "error", ex.getMessage(),
+            "timestamp", LocalDateTime.now().toString()
+        ));
     }
 
-    public enum Result {
-        PASS, FAIL, PENDING
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, Object>> handleIllegalArgument(IllegalArgumentException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of(
+            "error", ex.getMessage(),
+            "timestamp", LocalDateTime.now().toString()
+        ));
     }
 }
