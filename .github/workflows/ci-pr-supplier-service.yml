@@ -19,7 +19,7 @@ permissions:
 
 jobs:
   pr-check:
-    uses: ./.github/workflows/_java-pr-check.yml
+    uses: ./.github/workflows/_java_pr-check.yml
     with:
       service-name: supplier-service
       service-dir: supplier-service
