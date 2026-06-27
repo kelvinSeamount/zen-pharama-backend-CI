@@ -9,7 +9,7 @@
 #   2. CodeQL        — Java security-extended SAST
 #   3. Semgrep       — java · owasp-top-ten · spring-boot rules
 #   4. OWASP Dep Chk — CVSS ≥ 7.0 reported (non-blocking; add NVD_API_KEY for faster NVD sync)
-
+# NOTE: This workflow is responsible for building & testing and it happens only on feat-*, fix-*, chore-* branches.
 name: Reusable Java PR Check (No Docker)
 
 on:

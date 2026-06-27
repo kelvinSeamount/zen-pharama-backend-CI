@@ -12,6 +12,7 @@
 #   8. Cosign sign   — keyless, GitHub OIDC → Fulcio CA → Rekor transparency log
 #
 # Outputs: image-tag (sha-<7chars>), registry (ECR registry URL)
+# This workflow builds the entire pipeline and occurs only on develop branch after a PR is created from the feature branch. The PR check workflow (_java_pr-check.yml) is responsible for building & testing and it happens only on feat-*, fix-*, chore-* branches
 
 
 name: Reusable Java Build and Security Gate
