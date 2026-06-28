@@ -31,7 +31,7 @@ jobs:
       service-name: supplier-service
       service-dir: supplier-service
       ecr-repository: supplier-service
-      aws-region: us-east-1
+      aws-region: eu-central-1
       needs-database: true
     secrets: inherit
 
