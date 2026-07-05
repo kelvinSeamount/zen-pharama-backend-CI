@@ -1,6 +1,8 @@
 const request = require('supertest');
 const app = require('../index');
 
+
+// Test suite for the Notification Service
 describe('Notification Service', () => {
   test('GET /actuator/health returns UP', async () => {
     const res = await request(app).get('/actuator/health');

@@ -1,5 +1,4 @@
 package com.pharma.supplier.service;
-
 import com.pharma.supplier.model.Supplier;
 import com.pharma.supplier.repository.SupplierRepository;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +9,10 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Transactional
+
+/**
+ * Service class for managing suppliers.
+ */
 public class SupplierService {
 
     private final SupplierRepository repository;
