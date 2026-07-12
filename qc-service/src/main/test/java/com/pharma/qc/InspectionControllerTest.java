@@ -1,5 +1,4 @@
 package com.pharma.qc;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pharma.qc.model.Inspection;
 import org.junit.jupiter.api.Test;
@@ -17,6 +16,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
+
+
+/**
+ * Integration tests for the InspectionController.
+ */
 class InspectionControllerTest {
 
     @Autowired

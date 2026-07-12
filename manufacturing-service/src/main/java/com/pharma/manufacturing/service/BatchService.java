@@ -1,5 +1,4 @@
 package com.pharma.manufacturing.service;
-
 import com.pharma.manufacturing.model.Batch;
 import com.pharma.manufacturing.repository.BatchRepository;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +7,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+
+/**
+ * Service class for managing Batch entities.
+ */
 @RequiredArgsConstructor
 @Transactional
 public class BatchService {

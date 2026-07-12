@@ -1,5 +1,4 @@
 package com.pharma.inventory.service;
-
 import com.pharma.inventory.model.InventoryItem;
 import com.pharma.inventory.repository.InventoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -7,6 +6,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
+
+/**
+ * Service class for managing inventory items.
+ */
 @Service
 @RequiredArgsConstructor
 @Transactional
