@@ -36,7 +36,7 @@ on:
         description: "AWS region where ECR lives"
         required: false
         type: string
-        default: us-east-1
+        default: eu-central-1
       needs-database:
         description: "Start a PostgreSQL 15 container for integration tests"
         required: false

@@ -40,7 +40,7 @@ on:
         description: "AWS region where ECR lives"
         required: false
         type: string
-        default: us-east-1
+        default: eu-central-1
     outputs:
       image-tag:
         description: "Docker image tag pushed to ECR (format: sha-<7chars>)"
